@@ -2,7 +2,7 @@ name: Deploy Static Site to Vercel
 
 on:
   push:
-    branches: [ "main", "master" ]  # Поддержка обеих веток
+    branches: [ "main", "master" ]
 
 jobs:
   deploy:
