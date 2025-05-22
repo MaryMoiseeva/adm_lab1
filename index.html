@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тестовое приложение</title>
+</head>
+<body>
+  <div id="title">Тестовое приложение</div>
+  <button id="testButton" style="margin-top: 200px;">Изменить цвет кнопки</button>
+  <script>
+    const button = document.getElementById('testButton');
+    button.addEventListener('click', () => {
+      const colors = ['#ff4d4d', '#4dff4d', '#4d4dff'];
+      const currentColor = button.style.backgroundColor;
+      let newColor;
+      do {
+        newColor = colors[Math.floor(Math.random() * colors.length)];
+      } while (newColor === currentColor);
+      button.style.backgroundColor = newColor;
+    });
+  </script>
+</body>
+</html>
