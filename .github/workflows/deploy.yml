@@ -2,7 +2,7 @@ name: Deploy Static Site to Vercel
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ]  # Запускать только при пуше в main
 
 jobs:
   deploy:
@@ -11,6 +11,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Убедимся, что секреты доступны (DEBUG)
+      run: |
+        echo "Vercel Org ID: ${{ secrets.VERCEL_ORG_ID }}"
+        echo "Vercel Project ID: ${{ secrets.VERCEL_PROJECT_ID }}"
+        echo "Vercel Token: ${{ secrets.VERCEL_TOKEN }}"
 
     - name: Deploy to Vercel
       uses: amondnet/vercel-action@v20
